@@ -1,9 +1,5 @@
-fn five() -> i32 {
-    let x: i32 = 3;
-    return x + 3;
-}
+mod refs_borrow;
 
 fn main() {
-    let x = five();
-    println!("The value of x is: {}", x);
+    refs_borrow::b()
 }
