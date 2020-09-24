@@ -36,3 +36,18 @@ fn b_calc(s: &String) -> usize {
     // it simply REFERS to the value, but doesn't own it.
     // This then has no side-effect when the function returns.
 }
+
+/**
+ * Function borrowing and mutating value
+ */
+pub fn c() {
+    let mut s = String::from("mutate me.");
+    println!("S before mutation is: {}", s);
+
+    c_mut(&mut s);
+    println!("S AFTER mutation is: {}", s);
+}
+
+fn c_mut(str: &mut String) {
+    str.push_str(" Done!");
+}
