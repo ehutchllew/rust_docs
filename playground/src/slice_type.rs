@@ -20,3 +20,32 @@ fn a_word(s: &String) -> &str {
 
     return &s[..];
 }
+
+/**
+ * Rewriting a_word (now b_word) to accept a slice type in the parameters.
+ */
+
+pub fn b() {
+    let s: String = String::from("Normal mutable String");
+    let s_first_word: &str = b_word(&s[..]);
+
+    let s_literal: &str = "str Literal -- immutable";
+    let s_literal_first_word: &str = b_word(&s_literal[..]);
+    let s_literal_first_word_better: &str = b_word(s_literal);
+
+    println!(
+        "s_first_word: {}\ns_literal_first_word_better: {}",
+        s_first_word, s_literal_first_word_better
+    );
+}
+
+fn b_word(s: &str) -> &str {
+    let bytes = s.as_bytes();
+    for (i, &item) in bytes.iter().enumerate() {
+        if item == b' ' {
+            return &s[..i];
+        }
+    }
+
+    return &s[..];
+}

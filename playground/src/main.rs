@@ -5,5 +5,5 @@ mod slice_type;
 fn main() {
     refs_borrow::c();
     mut_vs_immut::a();
-    slice_type::a();
+    slice_type::b();
 }
